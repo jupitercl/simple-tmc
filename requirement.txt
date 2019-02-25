@@ -1,0 +1,10 @@
+certifi==2018.11.29
+chardet==3.0.4
+Django==1.11.20
+django-api-sbif==0.0.2
+idna==2.8
+munch==2.3.2
+pytz==2018.9
+requests==2.21.0
+six==1.12.0
+urllib3==1.24.1

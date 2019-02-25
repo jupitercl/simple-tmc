@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block container %}
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Obtener TMC</h2>
+            <p>Sistema para obtener la Tasa de Interés Máxima Convencional.</p>
+        </div>
+        <div class="col-md-4">
+            <form action="" method="post">
+                {% csrf_token %}                
+                <div class="form-group">
+                    <label for="monto">
+                        Monto UF:
+                    </label>
+                    {{ form.monto }}
+                </div>
+                <div class="form-group">
+                    <label for="cuotas">
+                        Cuotas:
+                    </label>
+                    {{ form.cuotas }}
+                </div>
+                <div class="form-group">
+                    <label for="fecha">
+                        Fecha TMC:
+                    </label>
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    {{ form.fecha }}
+                      <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+         </div>
+         {% if valor %}
+         <div class="col-md-4">
+            <h2>Valor TMC</h2>
+            <p>{{valor}}</p>
+        </div>
+        {% endif %}
+    </div>
+
+
+    <script>
+      $(function () {
+        $("#datetimepicker1").datetimepicker({
+          format: 'DD/MM/YYYY',
+          weekStart: 1,
+          todayBtn:  1,
+          autoclose: 1,
+          todayHighlight: 1,
+          startView: 2,
+          minView: 2,
+          maxDate : 'now'
+        });
+      });
+    </script>
+{% endblock %}
