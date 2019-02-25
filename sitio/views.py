@@ -52,13 +52,6 @@ def tmc_view(request):
         if tipo:
             try:
                 response_tmc = tmc.get_tmc(year, month)
-                for a in response_tmc.TMCs:
-                    print(a.Tipo)
-                    print(a.Titulo)
-                    print(a.SubTitulo)
-                    print(a.Valor)
-                    print('===============================')
-                print(tipo)
                 for operacion in response_tmc.TMCs:
                     if operacion.Tipo in tipo:
                         valor = '{}%'.format(operacion.Valor)
