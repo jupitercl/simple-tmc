@@ -19,6 +19,7 @@ CUOTAS_CHOICES = (
 
 class TmcForm(forms.Form):
     monto = forms.IntegerField(required=True)
+    reajustable = forms.BooleanField(required=False)
     cuotas = forms.ChoiceField(choices=CUOTAS_CHOICES,
                                initial='1',
                                widget=forms.Select(),

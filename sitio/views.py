@@ -13,23 +13,25 @@ def tmc_view(request):
         tipo = ()
         valor = None
         monto = int(request.POST['monto'])
+        reajustable = request.POST.get("reajustable", None)
         cuotas = int(request.POST['cuotas'])
         month = request.POST['fecha'][3:5]
         year = request.POST['fecha'][6:]
-        if cuotas == 13:
-            tipo = '20', '23'
-            if monto > 2000:
-                tipo += '14', '22'
+        if reajustable:
+            if cuotas > 12:
+                tipo = '20', '23'
+                if monto > 2000:
+                    tipo += '14', '22'
+                else:
+                    tipo += '13', '24'
             else:
-                tipo += '13', '24'
-        elif cuotas <= 3:
-            tipo = '12', '21'
+                tipo = '12', '21'
+        if cuotas <= 3:
             if monto > 5000:
                 tipo += '11', '25'
             else:
                 tipo += '10', '26'
-        elif cuotas > 3:
-            tipo = '12', '21'
+        else:
             if monto <= 200:
                 tipo += '7', '30', '33'
                 if monto <= 100:
