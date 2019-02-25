@@ -120,3 +120,8 @@ htmlcov
 # Sensitive data
 TODO
 integration.py
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
