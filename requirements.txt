@@ -1,6 +1,6 @@
 certifi==2018.11.29
 chardet==3.0.4
-Django==1.11.20
+Django==1.11.29
 django-api-sbif==0.0.3
 idna==2.8
 munch==2.3.2
